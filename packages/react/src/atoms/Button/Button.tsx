@@ -1,11 +1,11 @@
 import React from 'react';
 
-interface ButtonProps {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   label: string;
 }
 
 const Button: React.FC<ButtonProps> = ({ label }) => {
-  return <button>{label}</button>;
+  return <button className="dse-button-container">{label}</button>;
 };
 
 export default Button;

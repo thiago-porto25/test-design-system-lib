@@ -6,28 +6,19 @@
   "scripts": {
     "lint": "stylelint './**/*.scss'",
     "fix": "yarn lint --fix",
-    "prepare": "husky install",
-    "build": "node src/scripts/build.js"
+    "build": "node src/scripts/build.js",
+    "dev": "nodemon --watch src --exec yarn build -e scss"
   },
   "dependencies": {
     "normalize-scss": "^7.0.1"
   },
   "devDependencies": {
-    "husky": "^8.0.0",
-    "lint-staged": "^13.0.2",
     "node-sass": "^7.0.1",
+    "nodemon": "^2.0.16",
     "prettier": "^2.7.1",
     "stylelint": "^14.9.1",
     "stylelint-config-prettier": "^9.0.3",
     "stylelint-config-sass-guidelines": "^9.0.1",
     "stylelint-prettier": "^2.0.0"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "*.scss": "yarn fix"
   }
 }

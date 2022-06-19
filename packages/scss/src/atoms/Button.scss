@@ -1,5 +1,15 @@
 @import "foundation/all";
 
-.button {
-  padding: map-get($spacing, "md");
+.dse-button-container {
+  padding: map-get($spacing, "xxs");
+  background-color: $btn-primary-bg;
+  color: $btn-primary-color;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover {
+    background-color: $btn-primary-bg-hover;
+    color: $btn-primary-color;
+  }
 }
