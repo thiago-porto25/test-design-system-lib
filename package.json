@@ -1,0 +1,23 @@
+{
+  "name": "@thiago.tds/core",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:thiago-porto25/test-design-system-lib.git",
+  "author": "Thiago Porto <thiago.porto@d3.do>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "yarn lerna run build"
+  },
+  "devDependencies": {
+    "lerna": "^5.1.4"
+  },
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": [
+      "**/normalize-scss"
+    ]
+  }
+}
