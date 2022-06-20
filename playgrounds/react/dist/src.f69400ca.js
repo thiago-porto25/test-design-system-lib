@@ -33158,26 +33158,44 @@ Color.defaultProps = {
   height: 'md',
   width: 'md'
 };
-},{"react":"../../../node_modules/react/index.js"}],"../../../node_modules/@thiago.tds/react/lib/foundation/spacing.js":[function(require,module,exports) {
+},{"react":"../../../node_modules/react/index.js"}],"../../../node_modules/@thiago.tds/react/lib/atoms/Margin/Margin.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.spacing = void 0;
-const spacing = {
-  xxxs: 'xxxs',
-  xxs: 'xxs',
-  xs: 'xs',
-  sm: 'sm',
-  md: 'md',
-  lg: 'lg',
-  xl: 'xl',
-  xxl: 'xxl',
-  xxxl: 'xxxl'
+exports.default = void 0;
+
+var _react = _interopRequireDefault(require("react"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+const Margin = ({
+  size,
+  left,
+  right,
+  top,
+  bottom,
+  children,
+  ...props
+}) => {
+  let className = '';
+  if (!left || !right || !bottom || !top) className += `dse-margin-${size}`;
+  if (left) className += ` dse-margin-left-${size}`;
+  if (bottom) className += ` dse-margin-bottom-${size}`;
+  if (top) className += ` dse-margin-top-${size}`;
+  if (right) className += ` dse-margin-left-${size}`;
+  return _react.default.createElement("div", {
+    className: className,
+    ...props
+  }, children);
 };
-exports.spacing = spacing;
-},{}],"../../../node_modules/@thiago.tds/react/lib/index.js":[function(require,module,exports) {
+
+exports.default = Margin;
+Margin.defaultProps = {
+  size: 'md'
+};
+},{"react":"../../../node_modules/react/index.js"}],"../../../node_modules/@thiago.tds/react/lib/index.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -33195,10 +33213,10 @@ Object.defineProperty(exports, "Color", {
     return _Color.default;
   }
 });
-Object.defineProperty(exports, "spacing", {
+Object.defineProperty(exports, "Margin", {
   enumerable: true,
   get: function () {
-    return _spacing.spacing;
+    return _Margin.default;
   }
 });
 
@@ -33206,10 +33224,10 @@ var _Button = _interopRequireDefault(require("./atoms/Button/Button.js"));
 
 var _Color = _interopRequireDefault(require("./atoms/Color/Color.js"));
 
-var _spacing = require("./foundation/spacing.js");
+var _Margin = _interopRequireDefault(require("./atoms/Margin/Margin.js"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-},{"./atoms/Button/Button.js":"../../../node_modules/@thiago.tds/react/lib/atoms/Button/Button.js","./atoms/Color/Color.js":"../../../node_modules/@thiago.tds/react/lib/atoms/Color/Color.js","./foundation/spacing.js":"../../../node_modules/@thiago.tds/react/lib/foundation/spacing.js"}],"../../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
+},{"./atoms/Button/Button.js":"../../../node_modules/@thiago.tds/react/lib/atoms/Button/Button.js","./atoms/Color/Color.js":"../../../node_modules/@thiago.tds/react/lib/atoms/Color/Color.js","./atoms/Margin/Margin.js":"../../../node_modules/@thiago.tds/react/lib/atoms/Margin/Margin.js"}],"../../../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 
 function getBundleURLCached() {
@@ -33282,6 +33300,18 @@ module.exports = reloadCSS;
         module.hot.dispose(reloadCSS);
         module.hot.accept(reloadCSS);
       
+},{"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../node_modules/@thiago.tds/scss/lib/Margin.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
+},{"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"../../../node_modules/@thiago.tds/scss/lib/global.css":[function(require,module,exports) {
+
+        var reloadCSS = require('_css_loader');
+        module.hot.dispose(reloadCSS);
+        module.hot.accept(reloadCSS);
+      
 },{"_css_loader":"../../../node_modules/parcel-bundler/src/builtins/css-loader.js"}],"index.tsx":[function(require,module,exports) {
 "use strict";
 
@@ -33293,15 +33323,30 @@ var _react2 = require("@thiago.tds/react");
 
 require("@thiago.tds/scss/lib/Utilities.css");
 
+require("@thiago.tds/scss/lib/Margin.css");
+
+require("@thiago.tds/scss/lib/global.css");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var root = (0, _client.createRoot)(document.querySelector('#root'));
-root.render(_react.default.createElement(_react2.Color, {
+root.render(_react.default.createElement("div", null, _react.default.createElement(_react2.Margin, {
+  size: "xxxl",
+  top: true,
+  bottom: true,
+  left: true
+}, _react.default.createElement(_react2.Color, {
   color: "red",
   width: "xxxl",
   height: "xxxl"
-}));
-},{"react":"../../../node_modules/react/index.js","react-dom/client":"../../../node_modules/react-dom/client.js","@thiago.tds/react":"../../../node_modules/@thiago.tds/react/lib/index.js","@thiago.tds/scss/lib/Utilities.css":"../../../node_modules/@thiago.tds/scss/lib/Utilities.css"}],"../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+})), _react.default.createElement(_react2.Margin, {
+  size: "lg"
+}, _react.default.createElement(_react2.Color, {
+  color: "blue",
+  width: "xxxl",
+  height: "xxxl"
+}))));
+},{"react":"../../../node_modules/react/index.js","react-dom/client":"../../../node_modules/react-dom/client.js","@thiago.tds/react":"../../../node_modules/@thiago.tds/react/lib/index.js","@thiago.tds/scss/lib/Utilities.css":"../../../node_modules/@thiago.tds/scss/lib/Utilities.css","@thiago.tds/scss/lib/Margin.css":"../../../node_modules/@thiago.tds/scss/lib/Margin.css","@thiago.tds/scss/lib/global.css":"../../../node_modules/@thiago.tds/scss/lib/global.css"}],"../../../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -33329,7 +33374,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "43813" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "34827" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
