@@ -1,10 +1,13 @@
 {
-  "packages": [
-    "packages/*"
-  ],
+  "packages": ["packages/*"],
   "useNx": false,
   "version": "0.1.1",
   "npmClient": "yarn",
   "useWorkspaces": true,
-  "stream": true
+  "stream": true,
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    }
+  }
 }
