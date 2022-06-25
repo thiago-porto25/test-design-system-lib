@@ -32,6 +32,13 @@ const compile = (inputPath, output) => {
   fs.writeFileSync(path.resolve(output), result.css.toString());
 };
 
+try {
+  fs.mkdirSync(path.resolve("lib"));
+} catch (error) {
+  console.log('Directory "lib" already exists');
+  console.log("Continuing...");
+}
+
 compile("src/global.scss", "lib/global.css");
 
 getComponents().forEach((component) => {
