@@ -8,9 +8,10 @@
   "private": true,
   "scripts": {
     "build": "yarn lerna run build",
+    "build:storybook": "yarn build && yarn lerna run build-storybook",
     "dev": "yarn lerna run dev",
     "test": "yarn lerna run test",
-    "publish": "yarn test && yarn build && yarn lerna publish",
+    "publish": "yarn build && yarn test && yarn lerna publish",
     "commit": "yarn git-cz"
   },
   "devDependencies": {
